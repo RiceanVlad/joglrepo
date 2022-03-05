@@ -16,8 +16,13 @@ public class Main {
 	   
 	      // The canvas
 	      final GLCanvas glcanvas = new GLCanvas(capabilities);
-	      Circle sq = new Circle();
-	      glcanvas.addGLEventListener(sq);
+	      
+//	      Square instance = new Square();
+//	      Circle instance = new Circle();
+	      Triangle instance = new Triangle();
+//	      House instance = new House();
+	      
+	      glcanvas.addGLEventListener(instance);
 	      glcanvas.setSize(400, 400);
 	   
 	      //creating frame
