@@ -59,7 +59,40 @@ implements GLEventListener
 		gl.glVertex2d(-0.4, 0.4);  
 		gl.glVertex2d(0.0, 0.9);  
 		gl.glEnd();  
-		gl.glFlush();  
+	
+		
+		///////////////////////////
+		// SUN
+		///////////////////////////
+
+		for(double j=0.1; j < 0.9; j=j+ 0.1) {
+			int numVertices = 20;
+	        double radius = 0.1;
+	        
+	        // set color
+	        gl.glColor3f( 1.0f,1.0f,0.0f );
+
+	        // clear the window
+//	        gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
+
+	        // approximate  a circle with a polygon
+	        gl.glBegin(GL2.GL_POLYGON);
+//	        gl.glBegin(GL2.GL_TRIANGLE_FAN);
+	        {
+	            double angle = 0;
+	            double angleIncrement = 2 * Math.PI / numVertices;
+	            for (int i = 0; i < numVertices; i++) {
+	                angle = i * angleIncrement;
+	                double x = radius * Math.cos(angle) -0.5 + j;
+	                double y = radius * Math.sin(angle) + 0.85;
+	                gl.glVertex2d(x, y);
+	            }
+	        }
+	    	gl.glFlush();  
+	    	gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
+	        gl.glEnd();
+		}
+		
 	}
 
 	@Override
