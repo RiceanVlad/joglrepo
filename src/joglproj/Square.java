@@ -13,7 +13,7 @@ import com.jogamp.opengl.GLProfile;
 import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.fixedfunc.GLMatrixFunc;
 
-public class MainFrame
+public class Square
 implements GLEventListener
 {
 
