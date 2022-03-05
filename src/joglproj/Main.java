@@ -9,13 +9,14 @@ import com.jogamp.opengl.awt.GLCanvas;
 public class Main {
 
 	public static void main(String[] arguments){
+		
 		 //getting the capabilities object of GL2 profile        
 	      final GLProfile profile = GLProfile.get(GLProfile.GL2);
 	      GLCapabilities capabilities = new GLCapabilities(profile);
 	   
 	      // The canvas
 	      final GLCanvas glcanvas = new GLCanvas(capabilities);
-	      MainFrame sq = new MainFrame();
+	      Circle sq = new Circle();
 	      glcanvas.addGLEventListener(sq);
 	      glcanvas.setSize(400, 400);
 	   
