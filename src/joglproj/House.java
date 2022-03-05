@@ -11,7 +11,11 @@ implements GLEventListener
 	@Override
 	public void display(GLAutoDrawable canvas) {
 		final GL2 gl = canvas.getGL().getGL2();  
-		  
+		
+		///////////////////////////
+		// SQUARE
+		///////////////////////////
+
 	    //Drawing top edge  
 		gl.glBegin( GL2.GL_LINES ); 
 		gl.glColor3f( 0.0f,1.0f,0.0f );   
@@ -39,6 +43,23 @@ implements GLEventListener
 		gl.glVertex2d(0.4, 0.4);  
 		gl.glVertex2d(0.4, -0.4);  
 		gl.glEnd();  
+		
+		///////////////////////////
+		// TRIANGLE
+		///////////////////////////
+		
+	    //Right edge  
+		gl.glBegin (GL2.GL_LINES);  
+		gl.glVertex2d(0.4, 0.4);  
+		gl.glVertex2d(0.0, 0.9);  
+		gl.glEnd();  
+		  
+	    //Left edge  
+		gl.glBegin (GL2.GL_LINES);  
+		gl.glVertex2d(-0.4, 0.4);  
+		gl.glVertex2d(0.0, 0.9);  
+		gl.glEnd();  
+		gl.glFlush();  
 	}
 
 	@Override
