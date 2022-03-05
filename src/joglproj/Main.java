@@ -19,8 +19,8 @@ public class Main {
 	      
 //	      Square instance = new Square();
 //	      Circle instance = new Circle();
-	      Triangle instance = new Triangle();
-//	      House instance = new House();
+//	      Triangle instance = new Triangle();
+	      House instance = new House();
 	      
 	      glcanvas.addGLEventListener(instance);
 	      glcanvas.setSize(400, 400);
