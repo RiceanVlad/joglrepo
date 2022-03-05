@@ -14,34 +14,17 @@ import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.fixedfunc.GLMatrixFunc;
 
 public class MainFrame
-extends JFrame
 implements GLEventListener
 {
-	public MainFrame(){
-		super("Java OpenGL");
-		
-		this.setLayout(new BorderLayout());
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		this.setSize(800, 600);
-		
-		// This method will be explained later
-		// this.initializeJogl();
-		
-		this.setVisible(true);
-	}
 
 	@Override
 	public void display(GLAutoDrawable canvas) {
-		// Retrieve a reference to a GL object. We need it because it contains all the useful OGL methods.
-		GL2 gl = canvas.getGL().getGL2();
-		
-		// Each time the scene is redrawn we clear the color buffers which is perceived by the user as clearing the scene.
-		// Clear the color buffer
-		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
-		
-		// Forcing the scene to be rendered.
-		gl.glFlush();
+		final GL2 gl = canvas.getGL().getGL2();
+        
+	      gl.glBegin (GL2.GL_LINES);//static field
+	      gl.glVertex3f(0.50f,-0.50f,0);
+	      gl.glVertex3f(-0.50f,0.50f,0);
+	      gl.glEnd();
 	}
 
 	@Override
