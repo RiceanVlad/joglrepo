@@ -15,8 +15,8 @@ public class Main {
 	   
 	      // The canvas
 	      final GLCanvas glcanvas = new GLCanvas(capabilities);
-	      MainFrame l = new MainFrame();
-	      glcanvas.addGLEventListener(l);
+	      MainFrame sq = new MainFrame();
+	      glcanvas.addGLEventListener(sq);
 	      glcanvas.setSize(400, 400);
 	   
 	      //creating frame

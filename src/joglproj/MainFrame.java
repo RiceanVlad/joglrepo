@@ -19,12 +19,31 @@ implements GLEventListener
 
 	@Override
 	public void display(GLAutoDrawable canvas) {
-		final GL2 gl = canvas.getGL().getGL2();
-        
-	      gl.glBegin (GL2.GL_LINES);//static field
-	      gl.glVertex3f(0.50f,-0.50f,0);
-	      gl.glVertex3f(-0.50f,0.50f,0);
-	      gl.glEnd();
+		final GL2 gl = canvas.getGL().getGL2();  
+		  
+	      //Drawing top edge  
+	gl.glBegin( GL2.GL_LINES );  
+	gl.glVertex2d(-0.4, 0.4);  
+	gl.glVertex2d(0.4, 0.4);  
+	gl.glEnd();  
+	  
+	//Drawing bottom edge  
+	gl.glBegin( GL2.GL_LINES );  
+	gl.glVertex2d(-0.4,-0.4);  
+	gl.glVertex2d(0.4, -0.4);  
+	gl.glEnd();  
+	  
+	      //Drawing right edge  
+	gl.glBegin( GL2.GL_LINES );  
+	gl.glVertex2d(-0.4, 0.4);  
+	gl.glVertex2d(-0.4, -0.4);  
+	gl.glEnd();  
+	  
+	      //Drawing left edge  
+	gl.glBegin( GL2.GL_LINES );  
+	gl.glVertex2d(0.4, 0.4);  
+	gl.glVertex2d(0.4, -0.4);  
+	gl.glEnd();  
 	}
 
 	@Override
