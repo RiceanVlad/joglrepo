@@ -101,6 +101,8 @@ gl.glOrtho(0, 1, 0, 1, -1, 1);
 
 public void display(GLAutoDrawable canvas)
 {
+	float sun = -1f;
+
 GL2 gl = canvas.getGL().getGL2();
 
 // Erasing the canvas -- filling it with the clear color.
@@ -155,7 +157,6 @@ drawCircle(gl, 0, 1f, 0.09f);
 gl.glFlush();
 }
 
-float sun = -1f;
 
 // Here we define the function for building a circle from line segments.
 private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
