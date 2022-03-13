@@ -12,7 +12,7 @@ import com.jogamp.opengl.awt.GLCanvas;
 import com.jogamp.opengl.fixedfunc.GLMatrixFunc;
 import com.jogamp.opengl.util.FPSAnimator;
 
-public class MovingSun extends JFrame implements GLEventListener {
+public class Chess extends JFrame implements GLEventListener {
 
 	private GLCanvas canvas;
 	private FPSAnimator animator;
@@ -22,11 +22,11 @@ public class MovingSun extends JFrame implements GLEventListener {
 
 // Application main entry point
 	public static void main(String args[]) {
-		new MovingSun();
+		new Chess();
 	}
 
 // Default constructor
-	public MovingSun() {
+	public Chess() {
 		super("Java OpenGL");
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,7 +77,7 @@ public class MovingSun extends JFrame implements GLEventListener {
 		GL2 gl = canvas.getGL().getGL2();
 
 // Setting the clear color -- the color which will be used to erase the canvas.
-		gl.glClearColor(0, 0, 0, 0);
+		gl.glClearColor(0.1f, 0, 0, 0);
 
 // Select the Projection matrix.
 		gl.glMatrixMode(GLMatrixFunc.GL_PROJECTION);
@@ -93,68 +93,54 @@ public class MovingSun extends JFrame implements GLEventListener {
 	}
 
 	public void display(GLAutoDrawable canvas) {
-		float sun = -1f;
-
 		GL2 gl = canvas.getGL().getGL2();
+		 
+        // Erasing the canvas -- filling it with the clear color.
+        gl.glClear(GL.GL_COLOR_BUFFER_BIT);
+        gl.glColor3f(1f,1f,1f); // alb
 
-		// Erasing the canvas -- filling it with the clear color.
-		gl.glClear(GL.GL_COLOR_BUFFER_BIT);
-		gl.glColor3f(1f, 1f, 1f);
+ 
+        gl.glPushMatrix();
+        gl.glLoadIdentity();
+        // Add your scene code here
+        gl.glPointSize(65f);
+ 
+        gl.glBegin(GL2.GL_POINTS);
+ 
+        gl.glColor3f(0,1,0);
+        //al 3-lea patrat stanga-sus
+        gl.glBegin(GL2.GL_QUADS);
+        	int lin = 1;
+        	for(float i=0.1f;i<0.9f;i+=0.1f) {
+        		int col = 1;
+        		for(float j=0.1f;j<0.9f;j+=0.1f) {
+        			if(lin%2==0) {
+        		        if(col%2==1) {
+        		            gl.glColor3f(1f,1f,1f); // alb
+        		        } else {
+        		            gl.glColor3f(0f,0f,0f); // negru
+        		        }
+        			} else {
+        				if(col%2==1) {
+        		            gl.glColor3f(0f,0f,0f); // negru
+        		        } else {
+        		            gl.glColor3f(1f,1f,1f); // alb
+        		        }
+        			}
+        			col++;
+                    gl.glVertex2f(i, j);
+        		}
+        		lin++;
+        	}
 
-		gl.glPushMatrix();
-		gl.glLoadIdentity();
-		// Add your scene code here
-		
-	
-		
-		 // PATRAT din 2 triunghiuri
-		
-		// triunghi stanga jos
-		gl.glColor3f(1f, 0.5f, 0);
-		gl.glBegin(GL2.GL_TRIANGLES);
-		gl.glVertex2f(0.3f, 0.05f); // bottom left
-		gl.glVertex2f(0.6f, 0.05f); // bottom right
-		gl.glVertex2f(0.3f, 0.3f); // top left
-		gl.glEnd();
-		
-		// triunghi dreapta sus
-		gl.glColor3f(0.9f, 0.5f, 0.0f);
-		gl.glBegin(GL2.GL_TRIANGLES);
-		gl.glVertex2f(0.6f, 0.3f); // top right
-		gl.glVertex2f(0.6f, 0.05f); // bottom right
-		gl.glVertex2f(0.3f, 0.3f); // top left
-		gl.glEnd();
-
-		
-
-		// triunghi
-		gl.glColor3f(1f, 0, 0);
-		gl.glBegin(GL2.GL_TRIANGLES);
-		gl.glVertex2f(0.3f, 0.3f); // left
-		gl.glVertex2f(0.6f, 0.3f); // right
-		gl.glVertex2f(0.45f, 0.5f); // top
-		gl.glEnd();
-
-		gl.glPopMatrix();
-
-		// CERC
-
-		float speed = 0.005f;
-
-		if (sun < 0) {
-			gl.glTranslatef(speed, 0, 0);
-			sun += speed;
-		} else if (sun < 1) {
-			gl.glTranslatef(-speed, 0, 0);
-			sun += speed;
-		} else {
-			sun = -1f;
-		}
-		drawCircle(gl, 0, 0.9f, 0.07f);
-		// gl.glScalef(1.01f,1,1);
-
-		// Forcing the scene to be rendered.
-		gl.glFlush();
+        gl.glEnd();
+ 
+ 
+        gl.glPopMatrix();
+ 
+   
+        // Forcing the scene to be rendered.
+        gl.glFlush();
 	}
 	
 
