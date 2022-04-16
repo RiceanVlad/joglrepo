@@ -100,9 +100,6 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		  gl.glPushMatrix();
 	      gl.glRotatef(xrot, 0.0f, 0.0f, 1.0f);
 	      
-//	      gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f);
-//	      gl.glRotatef(zrot, 0.0f, 0.0f, 1.0f);
-	      
 	      applyTexture(gl,0);
 	      
 	      gl.glBegin(GL2.GL_QUADS);
@@ -144,14 +141,10 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f, 1.0f, 0.8f);
 	      gl.glEnd();
 	      gl.glFlush();
-//	      
-//	      createHorizontalPropeller(gl);
+
 	      
 	      //change the speeds here
 	      xrot += .2f;
-
-//	      yrot += .2f;
-//	      zrot += .2f;
 	}
 	
 	private void createHorizontalPropeller(GL2 gl) {
@@ -201,8 +194,6 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 	      //change the speeds here
 	      xrot += .2f;
 		  gl.glPopMatrix();
-//	      yrot += .2f;
-//	      zrot += .2f;
 	}
 	
 	private void createPropellerBase(GL2 gl) {
@@ -212,20 +203,21 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		
 		gl.glPushMatrix();
 	    applyTexture(gl,1);
+
 		
 		 gl.glBegin(GL2.GL_QUADS);
 
 	      // Front Face
-	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f, -1.0f, 1.0f);
-	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f, -1.0f, 1.0f);
+	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f, -2.0f, 1.0f);
+	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f, -2.0f, 1.0f);
 	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f( 0.2f, 0.0f, 1.0f);
 	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f, 0.0f, 1.0f);
 	      
 	      // Back Face
-	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-0.2f, -1.0f, 0.8f);
+	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-0.2f, -2.0f, 0.8f);
 	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-0.2f, 0.0f, 0.8f);
 	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 0.2f, 0.0f, 0.8f);
-	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 0.2f, -1.0f, 0.8f);
+	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 0.2f, -2.0f, 0.8f);
 //
 	      // Top Face
 	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f, 0.0f, 0.8f);
@@ -234,20 +226,20 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f( 0.2f, 0.0f, 0.8f);
 
 	      // Bottom Face
-	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-0.2f, -1.0f, 0.8f);
-	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 0.2f, -1.0f, 0.8f);
-	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 0.2f, -1.0f, 1.0f);
-	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-0.2f, -1.0f, 1.0f);
+	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-0.2f, -2.0f, 0.8f);
+	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 0.2f, -2.0f, 0.8f);
+	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 0.2f, -2.0f, 1.0f);
+	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-0.2f, -2.0f, 1.0f);
 //
 	      // Right face
-	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f, -1.0f, 0.8f);
+	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f, -2.0f, 0.8f);
 	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f( 0.2f, 0.0f, 0.8f);
 	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 0.2f, 0.0f, 1.0f);
-	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 0.2f, -1.0f, 1.0f);
+	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 0.2f, -2.0f, 1.0f);
 //	      
 //	      // Left Face
-	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f, -1.0f, 0.8f);
-	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-0.2f, -1.0f, 1.0f);
+	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f, -2.0f, 0.8f);
+	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-0.2f, -2.0f, 1.0f);
 	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-0.2f, 0.0f, 1.0f);
 	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f, 0.0f, 0.8f);
 	      gl.glEnd();
