@@ -57,6 +57,7 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 //		createCubeColors(gl);
 		createVerticalPropeller(gl);
 		createHorizontalPropeller(gl);
+		createPropellerBase(gl);
 				
 	}
 	
@@ -95,8 +96,11 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 	      gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
 	      gl.glLoadIdentity(); // Reset The View
 	      gl.glTranslatef(0f, 0f, -5.0f);
-			
+	      
+		  gl.glPushMatrix();
 	      gl.glRotatef(xrot, 0.0f, 0.0f, 1.0f);
+	      
+
 //	      gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f);
 //	      gl.glRotatef(zrot, 0.0f, 0.0f, 1.0f);
 	      
@@ -145,23 +149,15 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 //	      createHorizontalPropeller(gl);
 	      
 	      //change the speeds here
-//	      xrot += .2f;
+	      xrot += .2f;
+
 //	      yrot += .2f;
 //	      zrot += .2f;
 	}
 	
 	private void createHorizontalPropeller(GL2 gl) {
+		  
 		
-//	      gl.glClear(GL2.GL_COLOR_BUFFER_BIT | GL2.GL_DEPTH_BUFFER_BIT);
-//	      gl.glLoadIdentity(); // Reset The View
-//	      gl.glTranslatef(0f, 0f, -5.0f);
-//			
-//	      gl.glRotatef(xrot, 1.0f, 1.0f, 1.0f);
-//	      gl.glRotatef(yrot, 0.0f, 1.0f, 0.0f);
-//	      gl.glRotatef(zrot, 0.0f, 0.0f, 1.0f);
-	      
-//	      applyTexture(gl,0);
-	      
 	      gl.glBegin(GL2.GL_QUADS);
 
 	      // Front Face
@@ -205,8 +201,52 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 
 	      //change the speeds here
 	      xrot += .2f;
+		  gl.glPopMatrix();
 //	      yrot += .2f;
 //	      zrot += .2f;
+	}
+	
+	private void createPropellerBase(GL2 gl) {
+		 gl.glBegin(GL2.GL_QUADS);
+
+	      // Front Face
+	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.5f, -1.0f, -0.5f);
+	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.5f, -1.0f, 0.5f);
+	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f( 0.5f, 0.5f, 0.5f);
+	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.5f, 0.5f, 0.5f);
+	      
+////	      // Back Face
+//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-1.0f, -0.2f, 0.8f);
+//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-1.0f, 0.2f, 0.8f);
+//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 1.0f, 0.2f, 0.8f);
+//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 1.0f, -0.2f, 0.8f);
+////
+////	      // Top Face
+//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-1.0f, 0.2f, 0.8f);
+//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-1.0f, 0.2f, 1.0f);
+//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 1.0f, 0.2f, 1.0f);
+//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f( 1.0f, 0.2f, 0.8f);
+////
+////	      // Bottom Face
+//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-1.0f, -0.2f, 0.8f);
+//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 1.0f, -0.2f, 0.8f);
+//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 1.0f, -0.2f, 1.0f);
+//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-1.0f, -0.2f, 1.0f);
+//////
+////	      // Right face
+//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 1.0f, -0.2f, 0.8f);
+//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f( 1.0f, 0.2f, 0.8f);
+//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 1.0f, 0.2f, 1.0f);
+//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 1.0f, -0.2f, 1.0f);
+//////	      
+//////	      // Left Face
+//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-1.0f, -0.2f, 0.8f);
+//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-1.0f, -0.2f, 1.0f);
+//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-1.0f, 0.2f, 1.0f);
+//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-1.0f, 0.2f, 0.8f);
+	      
+	      gl.glEnd();
+	      gl.glFlush();
 	}
 	
 	private void createSun(GL2 gl) {
