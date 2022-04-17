@@ -252,57 +252,6 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 
 	}
 	
-	private void createHill(GL2 gl) {
-		gl.glPushMatrix();
-	    applyTexture(gl,2);
-
-		
-		 gl.glBegin(GL2.GL_QUADS);
-
-	      // Front Face
-		 gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-2.0f, 0.0f, 1.0f);
-	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 6.0f, 0.0f, 1.0f);
-	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f( 4.0f, 3.0f, 1.0f);
-	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(0.0f, 3.0f, 1.0f);
-	      
-	      
-//	      // Back Face
-//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-0.2f, -2.0f, 0.8f);
-//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-0.2f, 0.0f, 0.8f);
-//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 0.2f, 0.0f, 0.8f);
-//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 0.2f, -2.0f, 0.8f);
-////
-//	      // Top Face
-//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f, 0.0f, 0.8f);
-//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f, 0.0f, 1.0f);
-//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f, 0.0f, 1.0f);
-//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f( 0.2f, 0.0f, 0.8f);
-//
-//	      // Bottom Face
-//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-0.2f, -2.0f, 0.8f);
-//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 0.2f, -2.0f, 0.8f);
-//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 0.2f, -2.0f, 1.0f);
-//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-0.2f, -2.0f, 1.0f);
-////
-//	      // Right face
-//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f, -2.0f, 0.8f);
-//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f( 0.2f, 0.0f, 0.8f);
-//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f( 0.2f, 0.0f, 1.0f);
-//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f( 0.2f, -2.0f, 1.0f);
-////	      
-////	      // Left Face
-//	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f, -2.0f, 0.8f);
-//	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-0.2f, -2.0f, 1.0f);
-//	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-0.2f, 0.0f, 1.0f);
-//	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f, 0.0f, 0.8f);
-	      gl.glEnd();
-	      gl.glFlush();
-	      
-	      gl.glEnd();
-	      gl.glFlush();
-	      
-		  gl.glPopMatrix();
-	}
 	
 	private void createSun(GL2 gl) {
 		applyTexture(gl, 0);
