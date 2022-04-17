@@ -58,7 +58,12 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		createVerticalPropeller(gl);
 		createHorizontalPropeller(gl);
 		createPropellerBase(gl);
-		createHouse(gl);
+		createHouse1(gl);
+		createHouse2(gl);
+		createHouse3(gl);
+		createHouse4(gl);
+		createHouse5(gl);
+		createHouse6(gl);
 	}
 	
 	private void applyLight(GL2 gl) {
@@ -252,7 +257,7 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 
 	}
 	
-	private void createHouse(GL2 gl) {
+	private void createHouse1(GL2 gl) {
 		
 //		// BASE OF HOUSE
 		gl.glPushMatrix();
@@ -303,6 +308,288 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 	      
 		  gl.glPopMatrix();
 	}
+	
+	private void createHouse2(GL2 gl) {
+		
+		float xhouse = 0.0f;
+		float yhouse = 0.7f;
+		float zhouse = -4f;
+		
+		// BASE OF HOUSE
+				gl.glPushMatrix();
+			    applyTexture(gl,1);
+			    
+			    gl.glBegin(GL2.GL_QUADS);
+
+			      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f + xhouse, -5.0f+yhouse, zhouse); // bottom left
+			      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -3.0f+ xhouse, -5.0f+yhouse, zhouse); // bottom right
+			      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // top right
+			      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse,zhouse); // top left
+			    
+			    gl.glEnd();
+			      gl.glFlush();
+			      
+				  gl.glPopMatrix();
+				  
+			  // TRIANGLE ROOF
+				  gl.glPushMatrix();
+			    applyTexture(gl,2);
+			    
+			    gl.glBegin(GL2.GL_QUADS);
+
+			      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+			      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -4.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+			      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top right
+			      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+			    
+			    gl.glEnd();
+			      gl.glFlush();
+			      
+				  gl.glPopMatrix();
+				  
+				 // RECTANGULAR ROOF
+				  gl.glPushMatrix();
+			    applyTexture(gl,0);
+			    
+			    gl.glBegin(GL2.GL_QUADS);
+
+			    // Front Face
+			      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-4.7f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+			      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+			      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -2.3f+yhouse, zhouse); // top right
+			      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+	    
+	    gl.glEnd();
+	      gl.glFlush();
+	      
+		  gl.glPopMatrix();
+	}
+	
+	private void createHouse3(GL2 gl) {
+		
+		float xhouse = 3.0f;
+		float yhouse = -1f;
+		float zhouse = -2f;
+		
+		// BASE OF HOUSE
+				gl.glPushMatrix();
+			    applyTexture(gl,1);
+			    
+			    gl.glBegin(GL2.GL_QUADS);
+
+			      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f + xhouse, -5.0f+yhouse, zhouse); // bottom left
+			      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -3.0f+ xhouse, -5.0f+yhouse, zhouse); // bottom right
+			      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // top right
+			      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse,zhouse); // top left
+			    
+			    gl.glEnd();
+			      gl.glFlush();
+			      
+				  gl.glPopMatrix();
+				  
+			  // TRIANGLE ROOF
+				  gl.glPushMatrix();
+			    applyTexture(gl,2);
+			    
+			    gl.glBegin(GL2.GL_QUADS);
+
+			      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+			      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -4.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+			      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top right
+			      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+			    
+			    gl.glEnd();
+			      gl.glFlush();
+			      
+				  gl.glPopMatrix();
+				  
+				 // RECTANGULAR ROOF
+				  gl.glPushMatrix();
+			    applyTexture(gl,0);
+			    
+			    gl.glBegin(GL2.GL_QUADS);
+
+			    // Front Face
+			      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-4.7f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+			      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+			      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -2.3f+yhouse, zhouse); // top right
+			      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+	    
+	    gl.glEnd();
+	      gl.glFlush();
+	      
+		  gl.glPopMatrix();
+	}
+	
+private void createHouse4(GL2 gl) {
+		
+		float xhouse = 6.5f;
+		float yhouse = -0.3f;
+		float zhouse = 0f;
+		
+		// BASE OF HOUSE
+				gl.glPushMatrix();
+			    applyTexture(gl,1);
+			    
+			    gl.glBegin(GL2.GL_QUADS);
+
+			      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f + xhouse, -5.0f+yhouse, zhouse); // bottom left
+			      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -3.0f+ xhouse, -5.0f+yhouse, zhouse); // bottom right
+			      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // top right
+			      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse,zhouse); // top left
+			    
+			    gl.glEnd();
+			      gl.glFlush();
+			      
+				  gl.glPopMatrix();
+				  
+			  // TRIANGLE ROOF
+				  gl.glPushMatrix();
+			    applyTexture(gl,2);
+			    
+			    gl.glBegin(GL2.GL_QUADS);
+
+			      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+			      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -4.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+			      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top right
+			      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+			    
+			    gl.glEnd();
+			      gl.glFlush();
+			      
+				  gl.glPopMatrix();
+				  
+				 // RECTANGULAR ROOF
+				  gl.glPushMatrix();
+			    applyTexture(gl,0);
+			    
+			    gl.glBegin(GL2.GL_QUADS);
+
+			    // Front Face
+			      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-4.7f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+			      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+			      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -2.3f+yhouse, zhouse); // top right
+			      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+	    
+	    gl.glEnd();
+	      gl.glFlush();
+	      
+		  gl.glPopMatrix();
+	}
+
+private void createHouse5(GL2 gl) {
+	
+	float xhouse = 8f;
+	float yhouse = +0.7f;
+	float zhouse = -3f;
+	
+	// BASE OF HOUSE
+			gl.glPushMatrix();
+		    applyTexture(gl,1);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f + xhouse, -5.0f+yhouse, zhouse); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -3.0f+ xhouse, -5.0f+yhouse, zhouse); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse,zhouse); // top left
+		    
+		    gl.glEnd();
+		      gl.glFlush();
+		      
+			  gl.glPopMatrix();
+			  
+		  // TRIANGLE ROOF
+			  gl.glPushMatrix();
+		    applyTexture(gl,2);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -4.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+		    
+		    gl.glEnd();
+		      gl.glFlush();
+		      
+			  gl.glPopMatrix();
+			  
+			 // RECTANGULAR ROOF
+			  gl.glPushMatrix();
+		    applyTexture(gl,0);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		    // Front Face
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-4.7f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -2.3f+yhouse, zhouse); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+    
+    gl.glEnd();
+      gl.glFlush();
+      
+	  gl.glPopMatrix();
+}
+
+private void createHouse6(GL2 gl) {
+	
+	float xhouse = 9.0f;
+	float yhouse = +2f;
+	float zhouse = -4f;
+	
+	
+	// BASE OF HOUSE
+			gl.glPushMatrix();
+		    applyTexture(gl,1);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f + xhouse, -5.0f+yhouse, zhouse); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -3.0f+ xhouse, -5.0f+yhouse, zhouse); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse,zhouse); // top left
+		    
+		    gl.glEnd();
+		      gl.glFlush();
+		      
+			  gl.glPopMatrix();
+			  
+		  // TRIANGLE ROOF
+			  gl.glPushMatrix();
+		    applyTexture(gl,2);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -4.2f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+		    
+		    gl.glEnd();
+		      gl.glFlush();
+		      
+			  gl.glPopMatrix();
+			  
+			 // RECTANGULAR ROOF
+			  gl.glPushMatrix();
+		    applyTexture(gl,0);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		    // Front Face
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-4.7f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -2.3f+yhouse, zhouse); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xhouse, -2.3f+yhouse, zhouse); // top left
+    
+    gl.glEnd();
+      gl.glFlush();
+      
+	  gl.glPopMatrix();
+}
+	
 	
 	
 	private void createSun(GL2 gl) {
