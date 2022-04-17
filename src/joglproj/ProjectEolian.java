@@ -58,7 +58,7 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		createVerticalPropeller(gl);
 		createHorizontalPropeller(gl);
 		createPropellerBase(gl);
-		createHill(gl);
+		createHouse(gl);
 	}
 	
 	private void applyLight(GL2 gl) {
@@ -250,6 +250,58 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 	      
 		  gl.glPopMatrix();
 
+	}
+	
+	private void createHouse(GL2 gl) {
+		
+//		// BASE OF HOUSE
+		gl.glPushMatrix();
+	    applyTexture(gl,1);
+	    
+	    gl.glBegin(GL2.GL_QUADS);
+
+	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f, -5.0f, 1.0f); // bottom left
+	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -3.0f, -5.0f, 1.0f); // bottom right
+	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f, -3.5f, 1.0f); // top right
+	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-5.2f, -3.5f, 1.0f); // top left
+	    
+	    gl.glEnd();
+	      gl.glFlush();
+	      
+		  gl.glPopMatrix();
+		  
+	  // TRIANGLE ROOF
+		  gl.glPushMatrix();
+	    applyTexture(gl,2);
+	    
+	    gl.glBegin(GL2.GL_QUADS);
+
+	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f, -3.5f, 1.0f); // bottom left
+	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -4.2f, -3.5f, 1.0f); // bottom right
+	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-4.7f, -2.3f, 1.0f); // top right
+	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f, -2.3f, 1.0f); // top left
+	    
+	    gl.glEnd();
+	      gl.glFlush();
+	      
+		  gl.glPopMatrix();
+		  
+		 // RECTANGULAR ROOF
+		  gl.glPushMatrix();
+	    applyTexture(gl,0);
+	    
+	    gl.glBegin(GL2.GL_QUADS);
+
+	    // Front Face
+	      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-4.7f, -3.5f, 1.0f); // bottom left
+	      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-3.0f, -3.5f, 1.0f); // bottom right
+	      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f, -2.3f, 1.0f); // top right
+	      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f, -2.3f, 1.0f); // top left
+	    
+	    gl.glEnd();
+	      gl.glFlush();
+	      
+		  gl.glPopMatrix();
 	}
 	
 	
