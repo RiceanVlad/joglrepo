@@ -64,6 +64,7 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		createHouse4(gl);
 		createHouse5(gl);
 		createHouse6(gl);
+		createTree1(gl);
 	}
 	
 	private void applyLight(GL2 gl) {
@@ -578,7 +579,6 @@ private void createHouse6(GL2 gl) {
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
-		    // Front Face
 		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-4.7f+ xhouse, -3.5f+yhouse, zhouse); // bottom left
 		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-3.0f+ xhouse, -3.5f+yhouse, zhouse); // bottom right
 		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xhouse, -2.3f+yhouse, zhouse); // top right
@@ -586,6 +586,64 @@ private void createHouse6(GL2 gl) {
     
     gl.glEnd();
       gl.glFlush();
+      
+	  gl.glPopMatrix();
+}
+
+private void createTree1(GL2 gl) {
+	
+	float xtree = -4.5f;
+	float ytree = 0f;
+	float ztree = -4f;
+
+	
+	
+	// BASE OF TREE
+			gl.glPushMatrix();
+		    applyTexture(gl,1);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f + xtree, -1.0f+ytree, ztree); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f+ xtree, -1.0f+ytree, ztree); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(0.2f+ xtree, 1.0f+ytree, ztree); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f+ xtree, 1.0f+ytree,ztree); // top left
+		    
+		    gl.glEnd();
+		      gl.glFlush();
+		      
+			  gl.glPopMatrix();
+			  
+//		  // TRIANGLE ROOF
+//			  gl.glPushMatrix();
+//		    applyTexture(gl,2);
+//		    
+//		    gl.glBegin(GL2.GL_QUADS);
+//
+//		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f+ xtree, -3.5f+ytree, ztree); // bottom left
+//		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -4.2f+ xtree, -3.5f+ytree, ztree); // bottom right
+//		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-4.7f+ xtree, -2.3f+ytree, ztree); // top right
+//		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xtree, -2.3f+ytree, ztree); // top left
+//		    
+//		    gl.glEnd();
+//		      gl.glFlush();
+//		      
+//			  gl.glPopMatrix();
+//			  
+//			 // RECTANGULAR ROOF
+//			  gl.glPushMatrix();
+//		    applyTexture(gl,0);
+//		    
+//		    gl.glBegin(GL2.GL_QUADS);
+//
+//		    // Front Face
+//		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-4.7f+ xtree, -3.5f+ytree, ztree); // bottom left
+//		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-3.0f+ xtree, -3.5f+ytree, ztree); // bottom right
+//		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xtree, -2.3f+ytree, ztree); // top right
+//		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xtree, -2.3f+ytree, ztree); // top left
+    
+//		    gl.glEnd();
+//		      gl.glFlush();
       
 	  gl.glPopMatrix();
 }
