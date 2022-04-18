@@ -39,7 +39,9 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		private boolean moveMoonUp = true;
 		private float xSun = -5f;
 		private boolean moveSunRight = true;
-		
+		private float xMoonNew = 7f;
+		private boolean moveMoonLeft = true;
+
 
 	@Override
 	public void display(GLAutoDrawable canvas) {
@@ -52,8 +54,6 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		
 		applyLight(gl);
 		
-//	    createEarth(gl);
-//	    createMoon(gl);
 //		createCubeColors(gl);
 		createVerticalPropeller(gl);
 		createHorizontalPropeller(gl);
@@ -70,16 +70,23 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		createTree4(gl);
 		createTree5(gl);
 	    createSun(gl);
-
+	    createMoon(gl);
 
 	}
 	
 	private void applyLight(GL2 gl) {
+		float light = 1f;
+		if(Math.abs(xSun - xMoonNew)< 2f || Math.abs(xMoonNew - xSun) < 2f) {
+			light = 0f;
+		} else {
+			light = 1f;
+		}
+//		
 		// light
 		// The vector arguments represent the R, G, B, A values.
 		gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_AMBIENT, new float [] {0.0f, 0.0f, 0.3f, 1f}, 0);
 		
-		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, new float [] {0.9f, 0.9f, 0.9f, 1f}, 0);
+		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, new float [] {light, 0.9f, 0.9f, 1f}, 0);
 		// The vector arguments represent the x, y, z, w values of the position.
 		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, new float [] {5, 3, 3, 1f}, 0);
 		
@@ -804,79 +811,112 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 
 	}
 	
-	private void createEarth(GL2 gl) {
-		applyTexture(gl, 1);
+
+	
+	private void createMoon(GL2 gl) {
+		gl.glPushMatrix();
+
+		applyTexture(gl, 2);
 
 		// rotate sphere
-		gl.glLoadIdentity();
-		gl.glTranslatef(xEarth, 0.0f, zEarth); 
+//		gl.glLoadIdentity();
+		gl.glTranslatef( xMoonNew, 6f, -4.0f ); 
 		gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f); 
 	    
 		// draw sphere
 		GLUquadric sun = glu.gluNewQuadric ();
 		glu.gluQuadricTexture(sun, true);
 		glu.gluSphere (sun, 0.5, 32, 32);
-		glu.gluDeleteQuadric (sun);
+//		glu.gluDeleteQuadric (sun);
 		
-		if(moveEarthRight) {
-			xEarth += 0.01f;
-			if(xEarth >= 2f)
-				moveEarthRight = false;
-			if(xEarth <= 0) {
-				zEarth -= 0.05f;
-			} else {
-				zEarth += 0.05f;
-			}
-		} else {
-			xEarth -= 0.01f;
-			if(xEarth <= 0) {
-				zEarth -= 0.05f;
-			} else {
-				zEarth += 0.05f;
-			}
-			if(xEarth <= -2f)
-				moveEarthRight = true;
-		}
-		
-	    rquad -= 0.35f;
+	    if(moveMoonLeft==true) {
+	    	xMoonNew -= 0.02f;
+	    	if(xMoonNew < -6f) {
+	    		moveMoonLeft = false;
+	    	}
+	    } else {
+	    	xMoonNew += 0.02f;
+	    	if(xMoonNew > 6f) {
+	    		moveMoonLeft = true;
+	    	}
+	    }
+		gl.glPopMatrix();
+
 	}
 	
-	private void createMoon(GL2 gl) {
-		applyTexture(gl, 2);
-
-		// rotate sphere
-		gl.glLoadIdentity();
-		gl.glTranslatef(xEarth, yMoon, zEarth+zMoon); 
-		gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f); 
-	    
-		// draw sphere
-		GLUquadric sun = glu.gluNewQuadric ();
-		glu.gluQuadricTexture(sun, true);
-		glu.gluSphere (sun, 0.3, 32, 32);
-		glu.gluDeleteQuadric (sun);
-		
-		if(moveMoonUp) {
-			yMoon += 0.05f;
-			if(yMoon >= 2.0f)
-				moveMoonUp = false;
-			if(yMoon <= 0) {
-				zMoon -= 0.08f;
-			} else {
-				zMoon += 0.08f;
-			}
-		} else {
-			yMoon -= 0.05f;
-			if(yMoon <= -2.0f)
-				moveMoonUp = true;
-			if(yMoon <= 0) {
-				zMoon -= 0.08f;
-			} else {
-				zMoon += 0.08f;
-			}
-		}
-		
-	    rquad -= 0.35f;
-	}
+//	private void createEarth(GL2 gl) {
+//		applyTexture(gl, 1);
+//
+//		// rotate sphere
+//		gl.glLoadIdentity();
+//		gl.glTranslatef(xEarth, 0.0f, zEarth); 
+//		gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f); 
+//	    
+//		// draw sphere
+//		GLUquadric sun = glu.gluNewQuadric ();
+//		glu.gluQuadricTexture(sun, true);
+//		glu.gluSphere (sun, 0.5, 32, 32);
+//		glu.gluDeleteQuadric (sun);
+//		
+//		if(moveEarthRight) {
+//			xEarth += 0.01f;
+//			if(xEarth >= 2f)
+//				moveEarthRight = false;
+//			if(xEarth <= 0) {
+//				zEarth -= 0.05f;
+//			} else {
+//				zEarth += 0.05f;
+//			}
+//		} else {
+//			xEarth -= 0.01f;
+//			if(xEarth <= 0) {
+//				zEarth -= 0.05f;
+//			} else {
+//				zEarth += 0.05f;
+//			}
+//			if(xEarth <= -2f)
+//				moveEarthRight = true;
+//		}
+//		
+//	    rquad -= 0.35f;
+//	}
+	
+//	private void createMoon(GL2 gl) {
+//		applyTexture(gl, 2);
+//
+//		// rotate sphere
+//		gl.glLoadIdentity();
+//		gl.glTranslatef(xEarth, yMoon, zEarth+zMoon); 
+//		gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f); 
+//	    
+//		// draw sphere
+//		GLUquadric sun = glu.gluNewQuadric ();
+//		glu.gluQuadricTexture(sun, true);
+//		glu.gluSphere (sun, 0.3, 32, 32);
+//		glu.gluDeleteQuadric (sun);
+//		
+//		if(moveMoonUp) {
+//			yMoon += 0.05f;
+//			if(yMoon >= 2.0f)
+//				moveMoonUp = false;
+//			if(yMoon <= 0) {
+//				zMoon -= 0.08f;
+//			} else {
+//				zMoon += 0.08f;
+//			}
+//		} else {
+//			yMoon -= 0.05f;
+//			if(yMoon <= -2.0f)
+//				moveMoonUp = true;
+//			if(yMoon <= 0) {
+//				zMoon -= 0.08f;
+//			} else {
+//				zMoon += 0.08f;
+//			}
+//		}
+//		
+//	    rquad -= 0.35f;
+//	}
 	
 	private void createCubeColors(GL2 gl) {
 		gl.glLoadIdentity();
