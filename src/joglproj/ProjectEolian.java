@@ -150,7 +150,7 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 
 	      
 	      //change the speeds here
-	      xrot += .2f;
+	      xrot -= .5f;
 	}
 	
 	private void createHorizontalPropeller(GL2 gl) {
@@ -196,9 +196,7 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 	      
 	      gl.glEnd();
 	      gl.glFlush();
-
-	      //change the speeds here
-	      xrot += .2f;
+	   
 		  gl.glPopMatrix();
 	}
 	
@@ -597,7 +595,6 @@ private void createTree1(GL2 gl) {
 	float ztree = -4f;
 
 	
-	
 	// BASE OF TREE
 			gl.glPushMatrix();
 		    applyTexture(gl,1);
@@ -614,39 +611,32 @@ private void createTree1(GL2 gl) {
 		      
 			  gl.glPopMatrix();
 			  
-//		  // TRIANGLE ROOF
-//			  gl.glPushMatrix();
-//		    applyTexture(gl,2);
-//		    
-//		    gl.glBegin(GL2.GL_QUADS);
-//
-//		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-5.2f+ xtree, -3.5f+ytree, ztree); // bottom left
-//		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( -4.2f+ xtree, -3.5f+ytree, ztree); // bottom right
-//		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-4.7f+ xtree, -2.3f+ytree, ztree); // top right
-//		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xtree, -2.3f+ytree, ztree); // top left
-//		    
-//		    gl.glEnd();
-//		      gl.glFlush();
-//		      
-//			  gl.glPopMatrix();
-//			  
-//			 // RECTANGULAR ROOF
-//			  gl.glPushMatrix();
-//		    applyTexture(gl,0);
-//		    
-//		    gl.glBegin(GL2.GL_QUADS);
-//
-//		    // Front Face
-//		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-4.7f+ xtree, -3.5f+ytree, ztree); // bottom left
-//		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f(-3.0f+ xtree, -3.5f+ytree, ztree); // bottom right
-//		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(-3.0f+ xtree, -2.3f+ytree, ztree); // top right
-//		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-4.7f+ xtree, -2.3f+ytree, ztree); // top left
-    
-//		    gl.glEnd();
-//		      gl.glFlush();
+//		  // TOP CIRCLE TREE
+			  gl.glPushMatrix();
+			    
+			  drawCircle(gl,0.95f+xtree,1.0f+ytree,0.8f);
+			      
+			  gl.glPopMatrix();
       
-	  gl.glPopMatrix();
 }
+
+private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
+
+	double x = 0, y = 0, angle;
+//	gl.glColor3f(0, 1, 0);
+	gl.glBegin(GL2.GL_TRIANGLES);
+	for (int i = 0; i <= 360; i++) {
+		angle = Math.toRadians(i);
+		gl.glVertex2d(xCenter + x, yCenter + y);
+		x = radius * Math.cos(angle);
+		y = radius * Math.sin(angle);
+		gl.glVertex2d(xCenter + x, yCenter + y);
+		gl.glVertex2d(xCenter, yCenter);
+	}
+	gl.glEnd();
+
+}
+
 	
 	
 	
