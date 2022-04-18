@@ -65,6 +65,11 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		createHouse5(gl);
 		createHouse6(gl);
 		createTree1(gl);
+		createTree2(gl);
+		createTree3(gl);
+		createTree4(gl);
+		createTree5(gl);
+
 	}
 	
 	private void applyLight(GL2 gl) {
@@ -615,6 +620,134 @@ private void createTree1(GL2 gl) {
 			  gl.glPushMatrix();
 			    
 			  drawCircle(gl,0.95f+xtree,1.0f+ytree,0.8f);
+			      
+			  gl.glPopMatrix();
+      
+}
+
+private void createTree2(GL2 gl) {
+	
+	float xtree = -3.5f;
+	float ytree = 0f;
+	float ztree = -4f;
+
+	
+	// BASE OF TREE
+			gl.glPushMatrix();
+		    applyTexture(gl,1);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f + xtree, -1.0f+ytree, ztree); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f+ xtree, -1.0f+ytree, ztree); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(0.2f+ xtree, 1.0f+ytree, ztree); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f+ xtree, 1.0f+ytree,ztree); // top left
+		    
+		    gl.glEnd();
+		      gl.glFlush();
+		      
+			  gl.glPopMatrix();
+			  
+//		  // TOP CIRCLE TREE
+			  gl.glPushMatrix();
+			    
+			  drawCircle(gl,0.8f+xtree,1.0f+ytree,0.8f);
+			      
+			  gl.glPopMatrix();
+      
+}
+
+private void createTree3(GL2 gl) {
+	
+	float xtree = -5.5f;
+	float ytree = 0.5f;
+	float ztree = -4f;
+
+	
+	// BASE OF TREE
+			gl.glPushMatrix();
+		    applyTexture(gl,1);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f + xtree, -1.0f+ytree, ztree); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f+ xtree, -1.0f+ytree, ztree); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(0.2f+ xtree, 1.0f+ytree, ztree); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f+ xtree, 1.0f+ytree,ztree); // top left
+		    
+		    gl.glEnd();
+		      gl.glFlush();
+		      
+			  gl.glPopMatrix();
+			  
+//		  // TOP CIRCLE TREE
+			  gl.glPushMatrix();
+			    
+			  drawCircle(gl,1.1f+xtree,1.0f+ytree,0.8f);
+			      
+			  gl.glPopMatrix();
+      
+}
+
+private void createTree4(GL2 gl) {
+	
+	float xtree = -6.5f;
+	float ytree = -1f;
+	float ztree = -4f;
+
+	
+	// BASE OF TREE
+			gl.glPushMatrix();
+		    applyTexture(gl,1);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f + xtree, -1.0f+ytree, ztree); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f+ xtree, -1.0f+ytree, ztree); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(0.2f+ xtree, 1.0f+ytree, ztree); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f+ xtree, 1.0f+ytree,ztree); // top left
+		    
+		    gl.glEnd();
+		      gl.glFlush();
+		      
+			  gl.glPopMatrix();
+			  
+//		  // TOP CIRCLE TREE
+			  gl.glPushMatrix();
+			    
+			  drawCircle(gl,1.3f+xtree,1.0f+ytree,0.8f);
+			      
+			  gl.glPopMatrix();
+      
+}
+
+private void createTree5(GL2 gl) {
+	
+	float xtree = -7.0f;
+	float ytree = 1.5f;
+	float ztree = -4f;
+
+	
+	// BASE OF TREE
+			gl.glPushMatrix();
+		    applyTexture(gl,1);
+		    
+		    gl.glBegin(GL2.GL_QUADS);
+
+		      gl.glTexCoord2f(0.0f, 0.0f); gl.glVertex3f(-0.2f + xtree, -1.0f+ytree, ztree); // bottom left
+		      gl.glTexCoord2f(1.0f, 0.0f); gl.glVertex3f( 0.2f+ xtree, -1.0f+ytree, ztree); // bottom right
+		      gl.glTexCoord2f(1.0f, 1.0f); gl.glVertex3f(0.2f+ xtree, 1.0f+ytree, ztree); // top right
+		      gl.glTexCoord2f(0.0f, 1.0f); gl.glVertex3f(-0.2f+ xtree, 1.0f+ytree,ztree); // top left
+		    
+		    gl.glEnd();
+		      gl.glFlush();
+		      
+			  gl.glPopMatrix();
+			  
+//		  // TOP CIRCLE TREE
+			  gl.glPushMatrix();
+			    
+			  drawCircle(gl,1.4f+xtree,1.0f+ytree,0.8f);
 			      
 			  gl.glPopMatrix();
       
