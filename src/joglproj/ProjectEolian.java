@@ -88,7 +88,7 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		
 		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, new float [] {light, 0.9f, 0.9f, 1f}, 0);
 		// The vector arguments represent the x, y, z, w values of the position.
-		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, new float [] {5, 3, 3, 1f}, 0);
+		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, new float [] {0f, 6f, -5f, 1f}, 0);
 		
 		// enable materials
 //				gl.glMaterialfv(GL.GL_FRONT, GL2.GL_AMBIENT, new float [] {0.8f, 0.8f, 0.0f, 1f}, 0);
