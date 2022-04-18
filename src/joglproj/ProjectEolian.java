@@ -51,7 +51,6 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		
 		applyLight(gl);
 		
-//	    createSun(gl);
 //	    createEarth(gl);
 //	    createMoon(gl);
 //		createCubeColors(gl);
@@ -69,6 +68,8 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		createTree3(gl);
 		createTree4(gl);
 		createTree5(gl);
+	    createSun(gl);
+
 
 	}
 	
@@ -774,20 +775,24 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 	
 	
 	private void createSun(GL2 gl) {
+		gl.glPushMatrix();
+
 		applyTexture(gl, 0);
 
 		// rotate sphere
-		gl.glLoadIdentity();
-		gl.glTranslatef( 0f, 0f, -10.0f ); 
+//		gl.glLoadIdentity();
+		gl.glTranslatef( 0f, 7f, -5.0f ); 
 		gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f); 
 	    
 		// draw sphere
 		GLUquadric sun = glu.gluNewQuadric ();
 		glu.gluQuadricTexture(sun, true);
-		glu.gluSphere (sun, 0.8, 32, 32);
-		glu.gluDeleteQuadric (sun);
+		glu.gluSphere (sun, 1.0, 32, 32);
+//		glu.gluDeleteQuadric (sun);
 		
 	    rquad -= 0.35f;
+		gl.glPopMatrix();
+
 	}
 	
 	private void createEarth(GL2 gl) {
