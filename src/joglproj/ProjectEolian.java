@@ -37,7 +37,8 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		private float yMoon = -2.5f;
 		private boolean moveEarthRight = true;
 		private boolean moveMoonUp = true;
-
+		private float xSun = -5f;
+		private boolean moveSunRight = true;
 		
 
 	@Override
@@ -771,9 +772,6 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 
 }
 
-	
-	
-	
 	private void createSun(GL2 gl) {
 		gl.glPushMatrix();
 
@@ -781,7 +779,7 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 
 		// rotate sphere
 //		gl.glLoadIdentity();
-		gl.glTranslatef( 0f, 7f, -5.0f ); 
+		gl.glTranslatef( xSun, 7f, -5.0f ); 
 		gl.glRotatef(rquad, 1.0f, 1.0f, 1.0f); 
 	    
 		// draw sphere
@@ -791,6 +789,17 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 //		glu.gluDeleteQuadric (sun);
 		
 	    rquad -= 0.35f;
+	    if(moveSunRight==true) {
+	    	xSun += 0.02f;
+	    	if(xSun > 6f) {
+	    		moveSunRight = false;
+	    	}
+	    } else {
+	    	xSun -= 0.02f;
+	    	if(xSun < -6f) {
+	    		moveSunRight = true;
+	    	}
+	    }
 		gl.glPopMatrix();
 
 	}
