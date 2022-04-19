@@ -138,7 +138,7 @@ public class ProjectEolian extends JFrame implements GLEventListener, KeyListene
 		  gl.glPushMatrix();
 	      gl.glRotatef(xrot, 0.0f, 0.0f, 1.0f);
 	      
-	      applyTexture(gl,0);
+	      applyTexture(gl,12);
 	      
 	      gl.glBegin(GL2.GL_QUADS);
 
@@ -238,7 +238,7 @@ public class ProjectEolian extends JFrame implements GLEventListener, KeyListene
 //	      gl.glTranslatef(0f, 0f, -5.0f);
 		
 		gl.glPushMatrix();
-	    applyTexture(gl,1);
+	    applyTexture(gl,11);
 
 		
 		 gl.glBegin(GL2.GL_QUADS);
@@ -629,7 +629,7 @@ private void createTree1(GL2 gl) {
 	
 	// BASE OF TREE
 			gl.glPushMatrix();
-		    applyTexture(gl,1);
+		    applyTexture(gl,10);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -647,6 +647,8 @@ private void createTree1(GL2 gl) {
 			  gl.glPushMatrix();
 			    
 			  drawCircle(gl,0.95f+xtree,1.0f+ytree,0.8f);
+				gl.glColor3f(1, 1, 1);
+
 			      
 			  gl.glPopMatrix();
       
@@ -661,7 +663,7 @@ private void createTree2(GL2 gl) {
 	
 	// BASE OF TREE
 			gl.glPushMatrix();
-		    applyTexture(gl,1);
+		    applyTexture(gl,10);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -679,6 +681,8 @@ private void createTree2(GL2 gl) {
 			  gl.glPushMatrix();
 			    
 			  drawCircle(gl,0.8f+xtree,1.0f+ytree,0.8f);
+				gl.glColor3f(1, 1, 1);
+
 			      
 			  gl.glPopMatrix();
       
@@ -693,7 +697,7 @@ private void createTree3(GL2 gl) {
 	
 	// BASE OF TREE
 			gl.glPushMatrix();
-		    applyTexture(gl,1);
+		    applyTexture(gl,10);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -711,6 +715,8 @@ private void createTree3(GL2 gl) {
 			  gl.glPushMatrix();
 			    
 			  drawCircle(gl,1.1f+xtree,1.0f+ytree,0.8f);
+				gl.glColor3f(1, 1, 1);
+
 			      
 			  gl.glPopMatrix();
       
@@ -725,7 +731,7 @@ private void createTree4(GL2 gl) {
 	
 	// BASE OF TREE
 			gl.glPushMatrix();
-		    applyTexture(gl,1);
+		    applyTexture(gl,10);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -743,6 +749,8 @@ private void createTree4(GL2 gl) {
 			  gl.glPushMatrix();
 			    
 			  drawCircle(gl,1.3f+xtree,1.0f+ytree,0.8f);
+				gl.glColor3f(1, 1, 1);
+
 			      
 			  gl.glPopMatrix();
       
@@ -757,7 +765,7 @@ private void createTree5(GL2 gl) {
 	
 	// BASE OF TREE
 			gl.glPushMatrix();
-		    applyTexture(gl,1);
+		    applyTexture(gl,10);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -775,7 +783,8 @@ private void createTree5(GL2 gl) {
 			  gl.glPushMatrix();
 			    
 			  drawCircle(gl,1.4f+xtree,1.0f+ytree,0.8f);
-			      
+				gl.glColor3f(1, 1, 1);
+
 			  gl.glPopMatrix();
       
 }
@@ -783,7 +792,7 @@ private void createTree5(GL2 gl) {
 private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 
 	double x = 0, y = 0, angle;
-//	gl.glColor3f(0, 1, 0);
+	gl.glColor3f(0, 1, 0);
 	gl.glBegin(GL2.GL_TRIANGLES);
 	for (int i = 0; i <= 360; i++) {
 		angle = Math.toRadians(i);
@@ -1061,8 +1070,23 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 	     TextureHandler texhandler9=new TextureHandler(gl,glu,"woodRoofR1.jpg",true);
 	     texhandler9.configureTexture();
 	     tex[9]=texhandler9.texreader;
+	     
+	     th.bind(gl, texture[10]);
+	     TextureHandler texhandler10=new TextureHandler(gl,glu,"treeTexture.jpg",true);
+	     texhandler10.configureTexture();
+	     tex[10]=texhandler10.texreader;
+	     
+	     th.bind(gl, texture[11]);
+	     TextureHandler texhandler11=new TextureHandler(gl,glu,"steel.jpg",true);
+	     texhandler11.configureTexture();
+	     tex[11]=texhandler11.texreader;
+	     
+	     th.bind(gl, texture[12]);
+	     TextureHandler texhandler12=new TextureHandler(gl,glu,"steel2.jpg",true);
+	     texhandler12.configureTexture();
+	     tex[12]=texhandler12.texreader;
 		
-	     gl.glClearColor( 0f, 0f, 0f, 0f );
+	     gl.glClearColor( 0.1f, 0.1f, 0.1f, 0f );
 	     gl.glClearDepth( 1.0f );
 	     
 	    // Choose the shading model.
