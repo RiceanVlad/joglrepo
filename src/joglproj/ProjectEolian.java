@@ -20,7 +20,7 @@ import com.jogamp.opengl.util.FPSAnimator;
 public class ProjectEolian extends JFrame implements GLEventListener, KeyListener{
 	
 	// Number of textures we want to create
-		private final int NO_TEXTURES = 3;
+		private final int NO_TEXTURES = 20;
 
 		private int texture[] = new int[NO_TEXTURES];
 		TextureReader.Texture[] tex = new TextureReader.Texture[NO_TEXTURES];
@@ -85,16 +85,26 @@ public class ProjectEolian extends JFrame implements GLEventListener, KeyListene
 			light = 1f;
 		}
 //		
-		// light
+		// ECLIIPSE EFFECT
 		// The vector arguments represent the R, G, B, A values.
-		gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_AMBIENT, new float [] {
-				Math.abs(eolianSpeed/5), 
-				Math.abs(eolianSpeed/5), 
-				Math.abs(eolianSpeed/5),
-				1f
-				}, 0);
+		if(light==1f) {
+			gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_AMBIENT, new float [] {
+					Math.abs(eolianSpeed/5), 
+					Math.abs(eolianSpeed/5), 
+					Math.abs(eolianSpeed/5),
+					1f
+					}, 0);
+		} else {
+			gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_AMBIENT, new float [] {
+					0,
+					0,
+					0,
+					1f
+					}, 0);
+		}
 		
-		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, new float [] {0.9f, 0.9f, 0.9f, 0f}, 0);
+		// ADDTITIONAL ECLIIPSE EFFECT 
+		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, new float [] {light, light, light, light}, 0);
 		// The vector arguments represent the x, y, z, w values of the position.
 		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, new float [] {0f, 6f, -5f, 1f}, 0);
 		
@@ -282,7 +292,7 @@ public class ProjectEolian extends JFrame implements GLEventListener, KeyListene
 		
 //		// BASE OF HOUSE
 		gl.glPushMatrix();
-	    applyTexture(gl,1);
+	    applyTexture(gl,4);
 	    
 	    gl.glBegin(GL2.GL_QUADS);
 
@@ -314,7 +324,7 @@ public class ProjectEolian extends JFrame implements GLEventListener, KeyListene
 		  
 		 // RECTANGULAR ROOF
 		  gl.glPushMatrix();
-	    applyTexture(gl,0);
+	    applyTexture(gl,8);
 	    
 	    gl.glBegin(GL2.GL_QUADS);
 
@@ -338,7 +348,7 @@ public class ProjectEolian extends JFrame implements GLEventListener, KeyListene
 		
 		// BASE OF HOUSE
 				gl.glPushMatrix();
-			    applyTexture(gl,1);
+			    applyTexture(gl,4);
 			    
 			    gl.glBegin(GL2.GL_QUADS);
 
@@ -370,7 +380,7 @@ public class ProjectEolian extends JFrame implements GLEventListener, KeyListene
 				  
 				 // RECTANGULAR ROOF
 				  gl.glPushMatrix();
-			    applyTexture(gl,0);
+			    applyTexture(gl,8);
 			    
 			    gl.glBegin(GL2.GL_QUADS);
 
@@ -394,7 +404,7 @@ public class ProjectEolian extends JFrame implements GLEventListener, KeyListene
 		
 		// BASE OF HOUSE
 				gl.glPushMatrix();
-			    applyTexture(gl,1);
+			    applyTexture(gl,5);
 			    
 			    gl.glBegin(GL2.GL_QUADS);
 
@@ -426,7 +436,7 @@ public class ProjectEolian extends JFrame implements GLEventListener, KeyListene
 				  
 				 // RECTANGULAR ROOF
 				  gl.glPushMatrix();
-			    applyTexture(gl,0);
+			    applyTexture(gl,8);
 			    
 			    gl.glBegin(GL2.GL_QUADS);
 
@@ -450,7 +460,7 @@ private void createHouse4(GL2 gl) {
 		
 		// BASE OF HOUSE
 				gl.glPushMatrix();
-			    applyTexture(gl,1);
+			    applyTexture(gl,6);
 			    
 			    gl.glBegin(GL2.GL_QUADS);
 
@@ -466,7 +476,7 @@ private void createHouse4(GL2 gl) {
 				  
 			  // TRIANGLE ROOF
 				  gl.glPushMatrix();
-			    applyTexture(gl,2);
+			    applyTexture(gl,7);
 			    
 			    gl.glBegin(GL2.GL_QUADS);
 
@@ -482,7 +492,7 @@ private void createHouse4(GL2 gl) {
 				  
 				 // RECTANGULAR ROOF
 				  gl.glPushMatrix();
-			    applyTexture(gl,0);
+			    applyTexture(gl,9);
 			    
 			    gl.glBegin(GL2.GL_QUADS);
 
@@ -506,7 +516,7 @@ private void createHouse5(GL2 gl) {
 	
 	// BASE OF HOUSE
 			gl.glPushMatrix();
-		    applyTexture(gl,1);
+		    applyTexture(gl,6);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -522,7 +532,7 @@ private void createHouse5(GL2 gl) {
 			  
 		  // TRIANGLE ROOF
 			  gl.glPushMatrix();
-		    applyTexture(gl,2);
+		    applyTexture(gl,7);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -538,7 +548,7 @@ private void createHouse5(GL2 gl) {
 			  
 			 // RECTANGULAR ROOF
 			  gl.glPushMatrix();
-		    applyTexture(gl,0);
+		    applyTexture(gl,9);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -563,7 +573,7 @@ private void createHouse6(GL2 gl) {
 	
 	// BASE OF HOUSE
 			gl.glPushMatrix();
-		    applyTexture(gl,1);
+		    applyTexture(gl,6);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -579,7 +589,7 @@ private void createHouse6(GL2 gl) {
 			  
 		  // TRIANGLE ROOF
 			  gl.glPushMatrix();
-		    applyTexture(gl,2);
+		    applyTexture(gl,7);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -595,7 +605,7 @@ private void createHouse6(GL2 gl) {
 			  
 			 // RECTANGULAR ROOF
 			  gl.glPushMatrix();
-		    applyTexture(gl,0);
+		    applyTexture(gl,9);
 		    
 		    gl.glBegin(GL2.GL_QUADS);
 
@@ -1014,6 +1024,43 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 	     texhandler2.configureTexture();
 	     tex[2]=texhandler2.texreader;
 	     
+	     th.bind(gl, texture[3]);
+	     TextureHandler texhandler3=new TextureHandler(gl,glu,"house1.jpg",true);
+	     texhandler3.configureTexture();
+	     tex[3]=texhandler3.texreader;
+	     
+
+	     th.bind(gl, texture[4]);
+	     TextureHandler texhandler4=new TextureHandler(gl,glu,"house2.jpg",true);
+	     texhandler4.configureTexture();
+	     tex[4]=texhandler4.texreader;
+	     
+
+	     th.bind(gl, texture[5]);
+	     TextureHandler texhandler5=new TextureHandler(gl,glu,"house3.jpg",true);
+	     texhandler5.configureTexture();
+	     tex[5]=texhandler5.texreader;
+	     
+
+	     th.bind(gl, texture[6]);
+	     TextureHandler texhandler6=new TextureHandler(gl,glu,"wood1.jpg",true);
+	     texhandler6.configureTexture();
+	     tex[6]=texhandler6.texreader;
+	     
+	     th.bind(gl, texture[7]);
+	     TextureHandler texhandler7=new TextureHandler(gl,glu,"roof2.jpg",true);
+	     texhandler7.configureTexture();
+	     tex[7]=texhandler7.texreader;
+	     
+	     th.bind(gl, texture[8]);
+	     TextureHandler texhandler8=new TextureHandler(gl,glu,"tigla.jpg",true);
+	     texhandler8.configureTexture();
+	     tex[8]=texhandler8.texreader;
+	     
+	     th.bind(gl, texture[9]);
+	     TextureHandler texhandler9=new TextureHandler(gl,glu,"woodRoofR1.jpg",true);
+	     texhandler9.configureTexture();
+	     tex[9]=texhandler9.texreader;
 		
 	     gl.glClearColor( 0f, 0f, 0f, 0f );
 	     gl.glClearDepth( 1.0f );
