@@ -1,5 +1,7 @@
 package joglproj;
 
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 
 import javax.swing.JFrame;
@@ -15,7 +17,7 @@ import com.jogamp.opengl.glu.GLU;
 import com.jogamp.opengl.glu.GLUquadric;
 import com.jogamp.opengl.util.FPSAnimator;
 
-public class ProjectEolian extends JFrame implements GLEventListener{
+public class ProjectEolian extends JFrame implements GLEventListener, KeyListener{
 	
 	// Number of textures we want to create
 		private final int NO_TEXTURES = 3;
@@ -41,6 +43,7 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 		private boolean moveSunRight = true;
 		private float xMoonNew = 7f;
 		private boolean moveMoonLeft = true;
+		private float eolianSpeed = 1f;
 
 
 	@Override
@@ -84,9 +87,14 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 //		
 		// light
 		// The vector arguments represent the R, G, B, A values.
-		gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_AMBIENT, new float [] {0.0f, 0.0f, 0.3f, 1f}, 0);
+		gl.glLightfv(GL2.GL_LIGHT1, GL2.GL_AMBIENT, new float [] {
+				Math.abs(eolianSpeed/5), 
+				Math.abs(eolianSpeed/5), 
+				Math.abs(eolianSpeed/5),
+				1f
+				}, 0);
 		
-		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, new float [] {light, 0.9f, 0.9f, 1f}, 0);
+		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, new float [] {0.9f, 0.9f, 0.9f, 0f}, 0);
 		// The vector arguments represent the x, y, z, w values of the position.
 		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, new float [] {0f, 6f, -5f, 1f}, 0);
 		
@@ -164,7 +172,7 @@ public class ProjectEolian extends JFrame implements GLEventListener{
 
 	      
 	      //change the speeds here
-	      xrot -= .5f;
+	      xrot += eolianSpeed;
 	}
 	
 	private void createHorizontalPropeller(GL2 gl) {
@@ -1048,7 +1056,7 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 	      gl.glLoadIdentity();
 	   }
 	
-	public  static void initializeFrame()
+	public static void initializeFrame()
 	{
 		  final GLProfile profile = GLProfile.get(GLProfile.GL2);
 	      GLCapabilities capabilities = new GLCapabilities(profile);
@@ -1058,6 +1066,9 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 	      ProjectEolian m = new ProjectEolian();
 	      glcanvas.addGLEventListener(m);
 	      glcanvas.setSize(900, 900);
+	      
+	      // key listener
+	      glcanvas.addKeyListener(m);
 	      
 	      //creating frame
 	      final JFrame frame = new JFrame ("Lab6 - 3D");
@@ -1071,9 +1082,35 @@ private void drawCircle(GL2 gl, float xCenter, float yCenter, float radius) {
 			
 	      animator.start();
 	}
-	public static void main(String[] args) 
+	public  static void main(String[] args) 
 	{
 		initializeFrame();
 	}
+	
+	public void keyPressed(KeyEvent event)
+	{ 
+					
+		if (event.getKeyCode()== KeyEvent.VK_RIGHT) {
+		      eolianSpeed -= 0.5f;
+		}
+
+		if (event.getKeyCode()== KeyEvent.VK_LEFT) {
+		      eolianSpeed += 0.5f;
+		}
+			
+			 	
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}	
 
 }
